@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather updates </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Signika+Negative:wght@300;500&display=swap"
+    rel="stylesheet">
+</head>
+
+
+<body id="" class="bg-dark text-light" style="font-family: 'Exo 2', sans-serif;
+  font-family: 'Signika Negative', sans-serif;">
+  <nav class="navbar " style="background-color: #002D62;">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light ">Ways Weather</a>
+
+      <div class="text-light fs-3" style="font-family: 'Exo 2', sans-serif;
+      font-family: 'Signika Negative', sans-serif;">
+        City : <span id="city-value">Delhi</span>
+      </div>
+
+      <form class="d-flex" id="search-whole" role="search">
+        <input class="form-control me-2" type="search" id="searchBox" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" id="searchButton" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="d-flex rounded-3 m-4 mx-5 p-3 justify-content-center align-items-center" id="description-1"
+    style="background-color: #3a435a;">
+    <div class="row">
+      <div class="fs-5">
+        <div > Description : <span id="description-value">Sunny and Cloudy</span></div>
+        <div id="desc-long"> </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+
+  </div>
+  
+
+  <div class="d-flex m-4 mx-5 p-3 rounded-3  flex-column">
+    <div class="row  m-3">
+      <div class="col">
+        <div class="m-3  p-3 rounded-3 col-md-6 " id="temperature" style="background-color: #3a435a;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="width: 35px; background-color: white; border-radius: 3px; margin-right:3px;">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path opacity="0.5"
+                d="M17.5 16.5C17.5 19.5376 15.0376 22 12 22C8.96243 22 6.5 19.5376 6.5 16.5C6.5 14.7636 7.30465 13.2152 8.56141 12.2072C8.82505 11.9957 9 11.6857 9 11.3477V5C9 3.34315 10.3431 2 12 2C13.6569 2 15 3.34315 15 5V11.3477C15 11.6857 15.1749 11.9957 15.4386 12.2072C16.6954 13.2152 17.5 14.7636 17.5 16.5Z"
+                fill="#1C274C"></path>
+              <path
+                d="M12.75 5C12.75 4.58579 12.4142 4.25 12 4.25C11.5858 4.25 11.25 4.58579 11.25 5V13.3804C11.25 13.8172 10.9527 14.1876 10.592 14.4339C9.93273 14.8841 9.5 15.6415 9.5 16.5C9.5 17.8807 10.6193 19 12 19C13.3807 19 14.5 17.8807 14.5 16.5C14.5 15.6415 14.0673 14.8841 13.408 14.4339C13.0473 14.1876 12.75 13.8172 12.75 13.3804V5Z"
+                fill="#1C274C"></path>
+            </g>
+          </svg>
+          Temperature: <span id="temperature-value"> 45 C</span>
+        </div>
+
+        <div class=" m-3 p-3 rounded-3 col-md-6" id="humidity" style="background-color: #3a435a;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="width: 35px; background-color: white; border-radius: 3px; margin-right:3px;">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M20 14.5714C20 18.7526 16.3364 22 12 22C7.66359 22 4 18.7526 4 14.5714C4 12 5.30472 9.45232 6.71637 7.42349C8.1468 5.36767 9.79177 3.69743 10.6777 2.85537M20 14.5714L10.6777 2.85537M20 14.5714C20 12 18.6953 9.45232 17.2836 7.42349C15.8532 5.36767 14.2082 3.69743 13.3223 2.85537C12.5778 2.14778 11.4222 2.14778 10.6777 2.85537M20 14.5714L10.6777 2.85537"
+                stroke="#33363F" stroke-width="2"></path>
+              <path
+                d="M12 18C11.4747 18 10.9546 17.8965 10.4693 17.6955C9.98396 17.4945 9.54301 17.1999 9.17157 16.8284C8.80014 16.457 8.5055 16.016 8.30448 15.5307C8.10346 15.0454 8 14.5253 8 14"
+                stroke="#33363F" stroke-width="2" stroke-linecap="round"></path>
+            </g>
+          </svg>
+          Humidity : <span id="humidity-value">4545</span>
+        </div>
+
+        <div class="m-3  p-3 rounded-3 col-md-6" id="pressure" style="background-color: #3a435a;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="width: 35px; background-color: white; border-radius: 3px; margin-right:3px;">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path opacity="0.5"
+                d="M22 12.3529C22 9.88113 20.393 7.78024 18.1551 7.01498M6.28571 18C3.91878 18 2 16.1038 2 13.7647C2 11.4256 3.91878 9.52941 6.28571 9.52941C6.56983 9.52941 6.8475 9.55673 7.11616 9.60887M14.381 7.02721C14.9767 6.81911 15.6178 6.70588 16.2857 6.70588C16.9404 6.70588 17.5693 6.81468 18.1551 7.01498M7.11616 9.60887C6.88706 8.9978 6.7619 8.33687 6.7619 7.64706C6.7619 4.52827 9.32028 2 12.4762 2C15.4159 2 17.8371 4.19371 18.1551 7.01498M7.11616 9.60887C7.68059 9.71839 8.20528 9.9374 8.66667 10.2426"
+                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+              <path
+                d="M17.0476 15.142C17.4349 15.0119 17.8516 14.9412 18.2857 14.9412C18.7113 14.9412 19.1201 15.0092 19.5008 15.1344M12.3255 16.7555C12.1509 16.723 11.9704 16.7059 11.7857 16.7059C10.2472 16.7059 9 17.891 9 19.3529C9 20.8149 10.2472 22 11.7857 22H18.2857C20.3371 22 22 20.4198 22 18.4706C22 16.9257 20.9554 15.6126 19.5008 15.1344M12.3255 16.7555C12.1766 16.3736 12.0952 15.9605 12.0952 15.5294C12.0952 13.5802 13.7582 12 15.8095 12C17.7203 12 19.2941 13.3711 19.5008 15.1344M12.3255 16.7555C12.6924 16.824 13.0334 16.9609 13.3333 17.1516"
+                stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+            </g>
+          </svg>
+          Pressure : <span id="pressure-value">1000</span>
+        </div>
+
+        <div class="m-3  p-3 rounded-3 col-md-6" id="sunrise" style="background-color: #3a435a;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="width: 35px; background-color: white; border-radius: 3px; margin-right:3px;">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.25 22C7.25 21.5858 7.58579 21.25 8 21.25H16C16.4142 21.25 16.75 21.5858 16.75 22C16.75 22.4142 16.4142 22.75 16 22.75H8C7.58579 22.75 7.25 22.4142 7.25 22Z"
+                fill="#1C274C"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3V2C11.25 1.58579 11.5858 1.25 12 1.25ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H3C3.41421 11.25 3.75 11.5858 3.75 12C3.75 12.4142 3.41421 12.75 3 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM20.25 12C20.25 11.5858 20.5858 11.25 21 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H21C20.5858 12.75 20.25 12.4142 20.25 12Z"
+                fill="#1C274C"></path>
+              <path opacity="0.5"
+                d="M5.25 12C5.25 13.1778 5.5521 14.2858 6.08267 15.25H2C1.58579 15.25 1.25 15.5858 1.25 16C1.25 16.4142 1.58579 16.75 2 16.75H11.25V11.8107L10.5303 12.5303C10.2374 12.8232 9.76256 12.8232 9.46967 12.5303C9.17678 12.2374 9.17678 11.7626 9.46967 11.4697L11.4697 9.46967C11.7626 9.17678 12.2374 9.17678 12.5303 9.46967L14.5303 11.4697C14.8232 11.7626 14.8232 12.2374 14.5303 12.5303C14.2374 12.8232 13.7626 12.8232 13.4697 12.5303L12.75 11.8107V16.75H22C22.4142 16.75 22.75 16.4142 22.75 16C22.75 15.5858 22.4142 15.25 22 15.25H17.9173C18.4479 14.2858 18.75 13.1778 18.75 12C18.75 8.27208 15.7279 5.25 12 5.25C8.27208 5.25 5.25 8.27208 5.25 12Z"
+                fill="#1C274C"></path>
+              <path
+                d="M12.5303 9.46967C12.2374 9.17678 11.7626 9.17678 11.4697 9.46967L9.46967 11.4697C9.17678 11.7626 9.17678 12.2374 9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303L11.25 11.8107V16.75H12.75V11.8107L13.4697 12.5303C13.7626 12.8232 14.2374 12.8232 14.5303 12.5303C14.8232 12.2374 14.8232 11.7626 14.5303 11.4697L12.5303 9.46967Z"
+                fill="#1C274C"></path>
+              <path
+                d="M4.25 19C4.25 18.5858 4.58579 18.25 5 18.25H19C19.4142 18.25 19.75 18.5858 19.75 19C19.75 19.4142 19.4142 19.75 19 19.75H5C4.58579 19.75 4.25 19.4142 4.25 19Z"
+                fill="#1C274C"></path>
+              <g opacity="0.5">
+                <path
+                  d="M4.39838 4.39838C4.69127 4.10549 5.16615 4.10549 5.45904 4.39838L5.85188 4.79122C6.14477 5.08411 6.14477 5.55898 5.85188 5.85188C5.55898 6.14477 5.08411 6.14477 4.79122 5.85188L4.39838 5.45904C4.10549 5.16615 4.10549 4.69127 4.39838 4.39838Z"
+                  fill="#1C274C"></path>
+                <path
+                  d="M19.6009 4.39864C19.8938 4.69153 19.8938 5.16641 19.6009 5.4593L19.2081 5.85214C18.9152 6.14503 18.4403 6.14503 18.1474 5.85214C17.8545 5.55924 17.8545 5.08437 18.1474 4.79148L18.5402 4.39864C18.8331 4.10575 19.308 4.10575 19.6009 4.39864Z"
+                  fill="#1C274C"></path>
+              </g>
+            </g>
+          </svg>
+          Sunrise : <span id="sunrise-value">4545</span>
+        </div>
+
+        <div class=" m-3 p-3 rounded-3 col-md-6" id="sunset" style="background-color: #3a435a;">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="width: 35px; background-color: white; border-radius: 3px; margin-right:3px;">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.25 22C7.25 21.5858 7.58579 21.25 8 21.25H16C16.4142 21.25 16.75 21.5858 16.75 22C16.75 22.4142 16.4142 22.75 16 22.75H8C7.58579 22.75 7.25 22.4142 7.25 22Z"
+                fill="#1C274C"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3V2C11.25 1.58579 11.5858 1.25 12 1.25ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H3C3.41421 11.25 3.75 11.5858 3.75 12C3.75 12.4142 3.41421 12.75 3 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM20.25 12C20.25 11.5858 20.5858 11.25 21 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H21C20.5858 12.75 20.25 12.4142 20.25 12Z"
+                fill="#1C274C"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M17.9173 15.25H6.08267H2C1.58579 15.25 1.25 15.5858 1.25 16C1.25 16.4142 1.58579 16.75 2 16.75H22C22.4142 16.75 22.75 16.4142 22.75 16C22.75 15.5858 22.4142 15.25 22 15.25H17.9173Z"
+                fill="#1C274C"></path>
+              <path opacity="0.5"
+                d="M4.25 19C4.25 18.5858 4.58579 18.25 5 18.25H19C19.4142 18.25 19.75 18.5858 19.75 19C19.75 19.4142 19.4142 19.75 19 19.75H5C4.58579 19.75 4.25 19.4142 4.25 19Z"
+                fill="#1C274C"></path>
+              <path opacity="0.5"
+                d="M5.25 11.9998C5.25 13.1776 5.5521 14.2856 6.08267 15.2498H17.9173C18.4479 14.2856 18.75 13.1776 18.75 11.9998C18.75 8.5254 16.125 5.6641 12.75 5.29102L11.25 5.29102C7.87504 5.6641 5.25 8.5254 5.25 11.9998Z"
+                fill="#1C274C"></path>
+              <path
+                d="M11.4697 12.841C11.7626 13.1339 12.2374 13.1339 12.5303 12.841L14.5303 10.841C14.8232 10.5481 14.8232 10.0732 14.5303 9.78033C14.2374 9.48744 13.7626 9.48744 13.4697 9.78033L12.75 10.5V5.29076C12.3028 5.22225 11.5637 5.26221 11.25 5.29076V10.5L10.5303 9.78033C10.2374 9.48744 9.76256 9.48744 9.46967 9.78033C9.17678 10.0732 9.17678 10.5481 9.46967 10.841L11.4697 12.841Z"
+                fill="#1C274C"></path>
+              <g opacity="0.5">
+                <path
+                  d="M4.39838 4.39838C4.69127 4.10549 5.16615 4.10549 5.45904 4.39838L5.85188 4.79122C6.14477 5.08411 6.14477 5.55898 5.85188 5.85188C5.55898 6.14477 5.08411 6.14477 4.79122 5.85188L4.39838 5.45904C4.10549 5.16615 4.10549 4.69127 4.39838 4.39838Z"
+                  fill="#1C274C"></path>
+                <path
+                  d="M19.6009 4.39864C19.8938 4.69153 19.8938 5.16641 19.6009 5.4593L19.2081 5.85214C18.9152 6.14503 18.4403 6.14503 18.1474 5.85214C17.8545 5.55924 17.8545 5.08437 18.1474 4.79148L18.5402 4.39864C18.8331 4.10575 19.308 4.10575 19.6009 4.39864Z"
+                  fill="#1C274C"></path>
+              </g>
+            </g>
+          </svg>
+          Sunset : <span id="sunset-value">1000</span>
+        </div>
+        <div class=" m-3 p-3 rounded-3 col-md-6" id="windSpeed" style="background-color: #3a435a;">
+          <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg"
+            style="width: 35px; background-color: white; border-radius: 3px; margin-right:3px;"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <style type="text/css">
+                .st0 {
+                  fill: none;
+                  stroke: #000000;
+                  stroke-width: 2;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-miterlimit: 10;
+                }
+
+                .st1 {
+                  fill: none;
+                  stroke: #000000;
+                  stroke-width: 2;
+                  stroke-linejoin: round;
+                  stroke-miterlimit: 10;
+                }
+              </style>
+              <line class="st0" x1="5" y1="3" x2="5" y2="29"></line>
+              <g>
+                <path class="st0"
+                  d="M27,14.38c-6.8,3.75-10.2-0.52-17,3.23c0-4.4,0-6.6,0-11c6.8-0.55,10.2,5.32,17,4.77 C27,12.58,27,13.18,27,14.38z">
+                </path>
+              </g>
+              <line class="st0" x1="10" y1="7" x2="5" y2="11"></line>
+              <line class="st0" x1="5" y1="13" x2="10" y2="17"></line>
+              <line class="st0" x1="14" y1="7.03" x2="14" y2="16.15"></line>
+              <line class="st0" x1="18" y1="8.74" x2="18" y2="15.98"></line>
+              <line class="st0" x1="22" y1="10.64" x2="22" y2="16"></line>
+            </g>
+          </svg>
+          Wind Speed : <span id="windSpeed-value">1000</span>
+        </div>
+      </div>
+
+
+      <div class=" d-flex m-3 p-3 rounded-3 col-md-6  flex-column " id="facts" style="background-color: #3a435a;">
+
+        <div class="d-flex justify-content-center align-items-center rounded-3 ">
+          <p>
+            Some intresting facts about weather
+          </p>
+        </div>
+        <div class="bg-light text-dark rounded-3 mx-1 w-75 ">
+          <p class="mx-3 pt-2"> Lightning strikes the same place </p>
+        </div>
+
+        <div class=" d-flex text-dark rounded-3 mx-1 mt-3 justify-content-end" style="background-color: #128C7E;">
+          <p class="mx-3 pt-2"> The lowest temperature recorded was on July 21, 1983, in Vostok, Antarctica </p>
+        </div>
+
+        <div class="bg-light text-dark rounded-3 mx-1 w-75 mt-3 ">
+          <p class="mx-3 pt-2"> The windiest place on earth is Chicago </p>
+        </div>
+
+        <div class=" d-flex text-dark rounded-3 mx-1 mt-3 justify-content-end" style="background-color: #128C7E;">
+          <p class="mx-3 pt-2"> Hurricane Irma is the longest-lasting hurricane or typhoon ever recorded </p>
+        </div>
+
+        <div class="bg-light text-dark rounded-3 mx-1 w-75 mt-3 ">
+          <p class="mx-3 pt-2"> Earth can be colder than Mars</p>
+        </div>
+
+        <div class=" d-flex text-dark rounded-3 mx-1 mt-3 justify-content-end" style="background-color: #128C7E;">
+          <p class="mx-3 pt-2"> First weather measuring and the oldest device is the rain gauge </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+        Some cool pictures:
+      </p>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a href="/images/ig-5.jpg">
+            <img src="/images/ig-5.jpg" alt="Lights" class="rounded-3" style="width:100%">
+            <div class="caption">
+              <p class="text-light rounded-2 mt-2 p-3 " style="background-color: #3a435a;">"Let the rain kiss you. Let the rain beat upon your head with silver liquid drops. Let the rain sing you a lullaby."</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a href="/images/ig-6.jpg">
+            <img src="/images/ig-6.jpg" alt="Nature" class="rounded-3" style="width:100%">
+            <div class="caption">
+              <p class="text-light rounded-2 mt-2 p-3 " style="background-color: #3a435a;">"Rain is not only drops of water. It's the love of the sky for the earth. They never meet each other but send love this way."</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a href="/images/ig-4.jpg">
+            <img src="/images/ig-4.jpg" alt="Fjords" class="rounded-3" style="width:100%">
+            <div class="caption">
+              <p class="text-light rounded-2 mt-3 p-3 " style="background-color: #3a435a;">"Life isn't about waiting for the storm to pass; it's about learning to dance in the rain."</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="rounded-3 p-3" style="background-color: #23346d;" >
+      <div class="d-flex justify-content-center align-items-center fs-2 fw-bold">
+        <p>
+          About Us
+        </p>
+      </div>
+      <div class="fs-6 d-flex justify-content-center ">
+        <p>
+          Stay prepared and stay informed with our accurate weather forecasts and live updates.
+        </p>
+      </div>
+
+      <div> 
+        <p class="fs-4 fw-bold">
+          Connect with us:
+        </p>
+        <a href="https://www.instagram.com/kartik.gujjar22/#"><svg viewBox="0 0 32 32" fill="none" class="m-2" xmlns="http://www.w3.org/2000/svg" style="width: 35px;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint0_radial_87_7153)"></rect> <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint1_radial_87_7153)"></rect> <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint2_radial_87_7153)"></rect> <path d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z" fill="white"></path> <defs> <radialGradient id="paint0_radial_87_7153" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)"> <stop stop-color="#B13589"></stop> <stop offset="0.79309" stop-color="#C62F94"></stop> <stop offset="1" stop-color="#8A3AC8"></stop> </radialGradient> <radialGradient id="paint1_radial_87_7153" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)"> <stop stop-color="#E0E8B7"></stop> <stop offset="0.444662" stop-color="#FB8A2E"></stop> <stop offset="0.71474" stop-color="#E2425C"></stop> <stop offset="1" stop-color="#E2425C" stop-opacity="0"></stop> </radialGradient> <radialGradient id="paint2_radial_87_7153" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)"> <stop offset="0.156701" stop-color="#406ADC"></stop> <stop offset="0.467799" stop-color="#6A45BE"></stop> <stop offset="1" stop-color="#6A45BE" stop-opacity="0"></stop> </radialGradient> </defs> </g></svg></a>
+        <a href="https://twitter.com/yes_im_kartik/#"><svg viewBox="0 -4 48 48" version="1.1" class="m-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="width: 35px;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Twitter-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-300.000000, -164.000000)" fill="#00AAEC"> <path d="M348,168.735283 C346.236309,169.538462 344.337383,170.081618 342.345483,170.324305 C344.379644,169.076201 345.940482,167.097147 346.675823,164.739617 C344.771263,165.895269 342.666667,166.736006 340.418384,167.18671 C338.626519,165.224991 336.065504,164 333.231203,164 C327.796443,164 323.387216,168.521488 323.387216,174.097508 C323.387216,174.88913 323.471738,175.657638 323.640782,176.397255 C315.456242,175.975442 308.201444,171.959552 303.341433,165.843265 C302.493397,167.339834 302.008804,169.076201 302.008804,170.925244 C302.008804,174.426869 303.747139,177.518238 306.389857,179.329722 C304.778306,179.280607 303.256911,178.821235 301.9271,178.070061 L301.9271,178.194294 C301.9271,183.08848 305.322064,187.17082 309.8299,188.095341 C309.004402,188.33225 308.133826,188.450704 307.235077,188.450704 C306.601162,188.450704 305.981335,188.390033 305.381229,188.271578 C306.634971,192.28169 310.269414,195.2026 314.580032,195.280607 C311.210424,197.99061 306.961789,199.605634 302.349709,199.605634 C301.555203,199.605634 300.769149,199.559408 300,199.466956 C304.358514,202.327194 309.53689,204 315.095615,204 C333.211481,204 343.114633,188.615385 343.114633,175.270495 C343.114633,174.831347 343.106181,174.392199 343.089276,173.961719 C345.013559,172.537378 346.684275,170.760563 348,168.735283" id="Twitter"> </path> </g> </g> </g></svg></a>
+        <a href=""><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="m-2" fill="none" style="width: 35px;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#0A66C2" d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"></path></g></svg></a>
+      </div>
+
+      <div class="mt-3 ">
+        <p class="fs-6">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 35px;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C13.8565 5 15.637 5.7375 16.9497 7.05025C18.2625 8.36301 19 10.1435 19 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14.646 9.00002C13.0379 7.58179 10.5975 7.6838 9.11336 9.23129C7.62921 10.7788 7.62921 13.2213 9.11336 14.7688C10.5975 16.3162 13.0379 16.4182 14.646 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+          All rights resereved to Ways Weather. 
+        </p>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
